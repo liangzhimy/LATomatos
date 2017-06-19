@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -653,7 +655,36 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="LATomatos" customModuleProvider="target">
+                    <connections>
+                        <outlet property="quitMenuItem" destination="Hf7-bp-crT" id="O2m-ua-PZj"/>
+                        <outlet property="settingMenuItem" destination="hmX-tQ-1qi" id="fi3-tT-8h4"/>
+                        <outlet property="startPauseMenuItem" destination="xaE-hC-K9d" id="4hO-aM-CT7"/>
+                        <outlet property="statusMenu" destination="xEf-4O-5nW" id="nT5-N9-GhN"/>
+                    </connections>
+                </customObject>
+                <menu id="xEf-4O-5nW">
+                    <items>
+                        <menuItem title="Start" id="xaE-hC-K9d">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="startPauseMenuItemPressed:" target="Voe-Tx-rLC" id="DHO-5M-V10"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Setting" id="hmX-tQ-1qi">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="settingMenuItemPressed:" target="Voe-Tx-rLC" id="cgV-vI-ad7"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Quit" id="Hf7-bp-crT">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="quitMenuItemPressed:" target="Voe-Tx-rLC" id="Br5-wN-540"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -661,7 +692,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -674,13 +705,13 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="-397" y="222"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="LATomatos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" hidden="YES" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
@@ -688,6 +719,58 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
+        </scene>
+        <!--Alert Vew Controller-->
+        <scene sceneID="JSC-nv-6ij">
+            <objects>
+                <viewController identifier="LAAlertVewController" storyboardIdentifier="LAAlertVewController" id="eN8-oe-i7B" customClass="LAAlertVewController" customModule="LATomatos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ABz-Dx-BZK">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NaC-bt-c5K">
+                                <rect key="frame" x="78" y="43" width="81" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="VjS-Mg-d8q"/>
+                                    <constraint firstAttribute="height" constant="21" id="i3y-q8-2Ql"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0UX-2T-MSQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aJe-R8-j9K">
+                                <rect key="frame" x="279" y="43" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Lu9-vo-weZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n1o-3s-uA8">
+                                <rect key="frame" x="170" y="142" width="111" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="HI Time come on" id="Muj-Fj-XiH">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="n1o-3s-uA8" firstAttribute="centerX" secondItem="ABz-Dx-BZK" secondAttribute="centerX" id="5Qs-8n-7fZ"/>
+                            <constraint firstAttribute="bottom" secondItem="aJe-R8-j9K" secondAttribute="bottom" constant="50" id="BdT-L4-iJN"/>
+                            <constraint firstItem="aJe-R8-j9K" firstAttribute="centerY" secondItem="NaC-bt-c5K" secondAttribute="centerY" id="Bpw-iB-1A5"/>
+                            <constraint firstItem="n1o-3s-uA8" firstAttribute="centerY" secondItem="ABz-Dx-BZK" secondAttribute="centerY" id="NVH-lY-hJ2"/>
+                            <constraint firstAttribute="bottom" secondItem="NaC-bt-c5K" secondAttribute="bottom" constant="50" id="OYL-Aw-bbI"/>
+                            <constraint firstAttribute="trailing" secondItem="aJe-R8-j9K" secondAttribute="trailing" constant="96" id="fHu-hA-AjC"/>
+                            <constraint firstItem="NaC-bt-c5K" firstAttribute="leading" secondItem="ABz-Dx-BZK" secondAttribute="leading" constant="84" id="fes-CG-mKA"/>
+                            <constraint firstItem="aJe-R8-j9K" firstAttribute="width" secondItem="NaC-bt-c5K" secondAttribute="width" id="iLW-Q7-fvd"/>
+                            <constraint firstItem="aJe-R8-j9K" firstAttribute="height" secondItem="NaC-bt-c5K" secondAttribute="height" id="w2Q-H9-cHn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="Y63-ng-Jof" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="211" y="222"/>
         </scene>
     </scenes>
 </document>
